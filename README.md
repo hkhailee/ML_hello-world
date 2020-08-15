@@ -6,6 +6,7 @@ Starting with setting up the environment.
 1. downloaded anaconda 
 2. started a new conda environment "hello-world"
 3. created testing script for environment 
---insert script 
+![Image of script](https://github.com/hkhailee/ML_hello-world/blob/master/test-script.png)
 4. ran script 
---insert output
+![Image of scriptOutput](https://github.com/hkhailee/ML_hello-world/blob/master/test-script-output.png)
+
