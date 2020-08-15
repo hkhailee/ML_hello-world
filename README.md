@@ -46,9 +46,41 @@ Iris-virginica     50
 dtype: int64
 ```
 function was able to organize data based on a column value.<br /> 
-<b>----end expirmentation---- <b><br /> 
-<b>----begin data visualization----<b>
+<b>----end expirmentation---- <\b><br /> 
+<b>----begin data visualization----<\b>
   
   using different pyplot functions to view attributes from the data set 
   Gaussian distribution or regular distrubution:
   https://en.wikipedia.org/wiki/Normal_distribution
+  
+  evaluation of data to beigin suggestions of a high correlation and a predictable relationship.
+  that can then be manipulated with algorithms. 
+<b>--- model creation and algorithms ----<\b>
+  
+  
+  From our colllected data set we will use 80% to train our models 
+  then 20% to check which model is the best for this set of data
+  
+  https://machinelearningmastery.com/k-fold-cross-validation/
+- That k-fold cross validation is a procedure used to estimate the skill of the model on new data.
+  Shuffle the dataset randomly.<br /> 
+    Split the dataset into k groups<br /> 
+    For each unique group:<br /> 
+      Take the group as a hold out or test data set<br /> 
+      Take the remaining groups as a training data set<br /> 
+      Fit a model on the training set and evaluate it on the test set<br /> 
+      Retain the evaluation score and discard the model<br /> 
+  Summarize the skill of the model using the sample of model evaluation scores<br /> 
+  
+  Bias -> limited flecibility to learn the true signal from the the data set <br />
+  Variance -> errror from sensiticity to small fluctations in the training set <br />
+  
+  For example: if you have a data set of 6 [0.1, 0.2, 0.3, 0.4, 0.5, 0.6] <br />
+  we can split and shuffle the data using kfold = KFold(3, True, 1) <br />
+  you can then use Kfold.split(data) from scikit-learn (which we have imported) <br />
+  to have three sets of data that will be trained on 2 and tested on one to see how well a certain model preforms <br />
+  ```train: [0.1 0.4 0.5 0.6], test: [0.2 0.3]
+  train: [0.2 0.3 0.4 0.6], test: [0.1 0.5]
+  train: [0.1 0.2 0.3 0.5], test: [0.4 0.6]
+  ```
+  
