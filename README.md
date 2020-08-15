@@ -48,3 +48,7 @@ dtype: int64
 function was able to organize data based on a column value.<br /> 
 <b>----end expirmentation---- <b><br /> 
 <b>----begin data visualization----<b>
+  
+  using different pyplot functions to view attributes from the data set 
+  Gaussian distribution or regular distrubution:
+  https://en.wikipedia.org/wiki/Normal_distribution
