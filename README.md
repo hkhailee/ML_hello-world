@@ -196,3 +196,4 @@ Iris-versicolor       1.00      1.00      1.00        13
  
  the first percentage and confusion matrix coming from SVC the second from LDA we can see that LDA was actually the better model choice. <br />
  
+<strong>---end model creation and algorithms ----</strong><br />
