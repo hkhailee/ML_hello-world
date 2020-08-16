@@ -83,4 +83,49 @@ function was able to organize data based on a column value.<br />
   train: [0.2 0.3 0.4 0.6], test: [0.1 0.5]
   train: [0.1 0.2 0.3 0.5], test: [0.4 0.6]
   ```
+  <strong>Models</strong><br />
+  1. Logistic Regression (LR)
+  2. Linear Discriminant Analysis (LDA)
+  3. K-Nearest Neighbors (KNN).
+  4. Classification and Regression Trees (CART).
+  5. Gaussian Naive Bayes (NB).
+  6. Support Vector Machines (SVM).
   
+  https://machinelearningmastery.com/randomness-in-machine-learning/
+  
+  running the following code in our script:
+```
+#spot check algorithms 
+models = []
+models.append(('LR', LogisticRegression(solver='liblinear', multi_class='ovr')))
+models.append(('LDA', LinearDiscriminantAnalysis()))
+models.append(('KNN', KNeighborsClassifier()))
+models.append(('CART', DecisionTreeClassifier()))
+models.append(('NB', GaussianNB()))
+models.append(('SVM', SVC(gamma='auto')))
+
+#evaluate each model in turn 
+results = []
+names = []
+for name, model in models:
+	kfold = StratifiedKFold(n_splits=10, random_state=1, shuffle=True)
+	cv_results = cross_val_score(model, X_train, Y_train, cv=kfold, scoring='accuracy')
+	results.append(cv_results)
+	names.append(name)
+	print('%s: %f (%f)' % (name, cv_results.mean(), cv_results.std()))
+```
+
+output:
+```
+LR: 0.941667 (0.065085)
+LDA: 0.975000 (0.038188)
+KNN: 0.958333 (0.041667)
+CART: 0.950000 (0.040825)
+NB: 0.950000 (0.055277)
+SVM: 0.983333 (0.033333)
+```
+
+we can see that support vector machine have the least amount of error for this data set <br />
+more on SVM: https://en.wikipedia.org/wiki/Support_vector_machine<br /> 
+An SVM model is a representation of the examples as points in space, mapped so that the examples of the separate categories are divided by a clear gap that is as wide as possible.
+
