@@ -46,8 +46,8 @@ Iris-virginica     50
 dtype: int64
 ```
 function was able to organize data based on a column value.<br /> 
-<b>----end expirmentation---- <b><br /> 
-<b>----begin data visualization----<b>
+<strong>----end expirmentation---- </strong><br /> 
+<strong>----begin data visualization----</strong>
   
   using different pyplot functions to view attributes from the data set 
   Gaussian distribution or regular distrubution:
@@ -55,7 +55,7 @@ function was able to organize data based on a column value.<br />
   
   evaluation of data to beigin suggestions of a high correlation and a predictable relationship.
   that can then be manipulated with algorithms. 
-<b>--- model creation and algorithms ----<b>
+<strong>--- model creation and algorithms ----</strong><br />
   
   
   From our colllected data set we will use 80% to train our models 
