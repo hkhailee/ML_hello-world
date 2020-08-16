@@ -125,7 +125,74 @@ NB: 0.950000 (0.055277)
 SVM: 0.983333 (0.033333)
 ```
 
-we can see that support vector machine have the least amount of error for this data set <br />
+running with 35 k splits output:
+```
+LR: 0.952381 (0.116642)
+LDA: 0.973810 (0.086307)
+KNN: 0.959524 (0.100340)
+CART: 0.950000 (0.111270)
+NB: 0.950000 (0.111270)
+SVM: 0.980952 (0.077372)
+```
+
+we can see that support vector machine have the least amount of error for this data set, with Linear Discriminant Analysis being a close second <br />
 more on SVM: https://en.wikipedia.org/wiki/Support_vector_machine<br /> 
 An SVM model is a representation of the examples as points in space, mapped so that the examples of the separate categories are divided by a clear gap that is as wide as possible.
 
+To see which set was actually better in the long run, Changing k back to the original 10. Adding this to our data-script
+```
+# Make predictions on validation dataset
+model = SVC(gamma='auto')
+model.fit(X_train, Y_train)
+predictions = model.predict(X_validation)
+
+# Evaluate predictions for SVC
+print(accuracy_score(Y_validation, predictions))
+print(confusion_matrix(Y_validation, predictions))
+print(classification_report(Y_validation, predictions))
+
+#make predictions
+model = LinearDiscriminantAnalysis()
+model.fit(X_train, Y_train)
+predictions = model.predict(X_validation)
+
+# Evaluate predictions for LDA
+print(accuracy_score(Y_validation, predictions))
+print(confusion_matrix(Y_validation, predictions))
+print(classification_report(Y_validation, predictions))
+```
+
+output:
+
+```
+0.9666666666666667
+[[11  0  0]
+ [ 0 12  1]
+ [ 0  0  6]]
+                 precision    recall  f1-score   support
+
+    Iris-setosa       1.00      1.00      1.00        11
+Iris-versicolor       1.00      0.92      0.96        13
+ Iris-virginica       0.86      1.00      0.92         6
+
+       accuracy                           0.97        30
+      macro avg       0.95      0.97      0.96        30
+   weighted avg       0.97      0.97      0.97        30
+
+1.0
+[[11  0  0]
+ [ 0 13  0]
+ [ 0  0  6]]
+                 precision    recall  f1-score   support
+
+    Iris-setosa       1.00      1.00      1.00        11
+Iris-versicolor       1.00      1.00      1.00        13
+ Iris-virginica       1.00      1.00      1.00         6
+
+       accuracy                           1.00        30
+      macro avg       1.00      1.00      1.00        30
+   weighted avg       1.00      1.00      1.00        30
+ ```
+ 
+ the first percentage and confusion matrix coming from SVC the second from LDA we can see that LDA was actually the better model choice. <br />
+ 
